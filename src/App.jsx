@@ -530,7 +530,7 @@ export default function App() {
           </div>
           <div className="preset-row">
             {targetPresets.map((item) => (
-              <button key={item.label} className={targetMonthlyIncome === item.value ? 'active' : ''} type="button" onClick={() => setTargetMonthlyIncome(item.value)}>
+              <button key={item.value} className={targetMonthlyIncome === item.value ? 'active' : ''} type="button" onClick={() => setTargetMonthlyIncome(item.value)}>
                 {item.label} — {money(item.value)}
               </button>
             ))}
@@ -640,7 +640,7 @@ export default function App() {
 
       <section className="content-grid">
         <section className="panel"><h2>Рост капитала по годам</h2><p className="muted">Слева размер капитала, снизу срок инвестирования.</p><MiniChart data={growth.data} /></section>
-        <section className="panel"><h2>Календарь выплат купонов</h2><p className="muted">Ближайшие выплаты выбранной подборки на 12 месяцев.</p><div className="calendar">{calendar.map((month) => <div key={month.key} className="month"><header><strong>{month.month} {month.year}</strong><span>{price(month.total)}</span></header>{month.payments.map((p) => <div key={`${p.name}-${p.date}`} className="payment"><span>{p.date}</span><strong>{p.name}</strong><em>{price(p.total)} <small>({p.quantity} шт.)</small></em></div>)}</div>)}</div></section>
+        <section className="panel"><h2>Календарь выплат купонов</h2><p className="muted">Ближайшие выплаты выбранной подборки на 12 месяцев.</p><div className="calendar">{calendar.map((month) => <div key={month.key} className="month"><header><strong>{month.month} {month.year}</strong><span>{price(month.total)}</span></header>{month.payments.map((p) => <div key={`${p.name}-${p.timestamp}`} className="payment"><span>{p.date}</span><strong>{p.name}</strong><em>{price(p.total)} <small>({p.quantity} шт.)</small></em></div>)}</div>)}</div></section>
       </section>
 
       <div className="test-badge">{testsPassed ? 'Расчёты проведены. Проверка расчётов пройдена' : 'Расчёты проведены. Проверьте исходные данные'}</div>
