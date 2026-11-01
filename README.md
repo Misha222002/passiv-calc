@@ -18,7 +18,9 @@ npm install
 npm run dev
 ```
 
-По умолчанию dev-сервер слушает `http://127.0.0.1:43173`.
+По умолчанию dev-сервер слушает `http://127.0.0.1:43173/passiv-calc/`.
+
+Сайт на GitHub Pages: https://misha222002.github.io/passiv-calc/
 
 Сборка для продакшена:
 
